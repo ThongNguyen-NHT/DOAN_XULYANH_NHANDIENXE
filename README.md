@@ -2,7 +2,7 @@
 
 Hệ thống tự động phát hiện và đếm phương tiện giao thông (Xe máy, Ô tô, Xe buýt/Xe tải) từ video sử dụng **YOLOv4-tiny** để nhận diện và **Centroid Tracking** để theo dõi đối tượng.
 
-![Demo Output](https://img.shields.io/badge/Demo-Running-green) 
+
 
 ## 📋 Tính năng chính
 - **Phát hiện vật thể:** Sử dụng mô hình YOLOv4-tiny (nhẹ, nhanh) để nhận diện các loại xe.
