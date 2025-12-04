@@ -67,6 +67,18 @@ while True:
                 confidences.append(float(confidence))
                 class_ids.append(class_id)
     
+    indexes = cv2.dnn.NMSBoxes(boxes, confidences, CONFIDENCE_THRESHOLD, NMS_THRESHOLD)
+
+    if len(indexes) > 0:
+        for i in indexes.flatten():
+            x, y, w, h = boxes[i]
+            label = str(classes[class_ids[i]])
+            color = colors[class_ids[i]]
+            
+            # Vẽ khung chữ nhật để test xem model chạy đúng không
+            cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
+            cv2.putText(frame, label, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+
     # Resize cho nhẹ
     frame = cv2.resize(frame, (960, 540)) 
     height, width, channels = frame.shape
